@@ -1,0 +1,44 @@
+<html>
+  <head>
+    <title>How to create fade-out effect on page load using javascript</title>
+    <style>
+      .box {
+        background-color: red;
+        width: 100px;
+        height: 100px;
+      }
+    </style>
+    <script type="text/javascript">
+      myFunction = (val) => {
+        setTimeout(box, val);
+      };
+
+      box = () => {
+        let fbox = document.getElementById("fadebox");
+        fbox.style.display = "none";
+        setTimeout(show, 3000);
+      };
+
+      show = () => {
+        let showbox = document.getElementById("fadebox");
+        showbox.style.display = "block";
+      };
+    </script>
+  </head>
+  <body id="body">
+    <br />
+
+    <b> How to create fade-out effect on page load using javascript </b>
+
+    <div id="fadebox" class="box"></div>
+    <button type="button" value="1000" onclick="myFunction(value)">
+      1 second
+    </button>
+    <button type="button" value="3000" onclick="myFunction(value)">
+      3 second</button
+    ><button type="button" value="5000" onclick="myFunction(value)">
+      5 second
+    </button>
+    <button type="button" onclick="show()">show</button>
+  </body>
+</html>

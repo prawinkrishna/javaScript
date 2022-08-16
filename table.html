@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Document</title>
+    <style>
+      table {
+        border-collapse: collapse;
+        border-spacing: 0;
+      }
+      th,
+      td {
+        padding: 10px 20px;
+        border: 1px solid #000;
+      }
+    </style>
+  </head>
+  <body id="bodys">
+    <script type="text/javascript">
+      let tablefun = () => {
+        let table = document.createElement("table");
+        let thead = [];
+        const arrraytable = [
+          {
+            name: "prawin",
+            number: 999999999,
+            email: "prawin@gmail.com",
+          },
+          {
+            name: "krishna",
+            number: 888888888,
+            email: "krishna@gmail.com",
+          },
+        ];
+        let row1 = document.createElement("tr");
+
+        for (let headcount = 0; headcount < 3; headcount++) {
+          thead[headcount] = document.createElement("th");
+          let keyName = Object.keys(arrraytable[0])[headcount];
+          thead[headcount].innerHTML = keyName;
+          row1.appendChild(thead[headcount]);
+        }
+
+        table.appendChild(row1);
+        let rowarr = [];
+        let tData = [];
+        arrraytable.forEach((data, index) => {
+          rowarr[index] = document.createElement("tr");
+          let keyLength = Object.keys(data).length;
+          // console.log(Object.entries(data));
+          // for (const [key, value] of Object.entries(data)) {
+          //   tData[index] = document.createElement("td");
+          //   tData[index].innerHTML = value;
+          //   rowarr[index].appendChild(tData[index]);
+          // }
+
+          Object.values(data).forEach((value, key) => {
+            console.log(value, key);
+            tData[index] = document.createElement("td");
+            tData[index].innerHTML = value;
+            rowarr[index].appendChild(tData[index]);
+          });
+          table.appendChild(rowarr[index]);
+        });
+        document.getElementById("bodys").appendChild(table);
+      };
+    </script>
+    <button onclick="tablefun()">Click me</button>
+  </body>
+</html>

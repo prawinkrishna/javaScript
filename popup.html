@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <script type="text/javascript">
+      let disp_prompt = () => {
+        var name = prompt("Please enter your name", "");
+        var number = prompt("Please enter your number", "");
+        if (name != null && name != "") {
+          if (number != null && number != "") {
+            document.write("Hello " + name + "! Your number is " + number);
+          }
+        }
+      };
+    </script>
+  </head>
+  <body>
+    <form>
+      <input
+        type="button"
+        onclick="disp_prompt()"
+        value="Display a prompt box"
+      />
+    </form>
+  </body>
+</html>

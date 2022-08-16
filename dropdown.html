@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <style></style>
+  </head>
+  <body>
+    <script type="text/javascript">
+      let changeBg = () => {
+        selectElement = document.getElementById("bgColors");
+        output = selectElement.value;
+        document.body.style.backgroundColor = output;
+      };
+    </script>
+    <h1>The select element</h1>
+
+    <p>The select element is used to create a drop-down list.</p>
+
+    <label for="cars">Choose a car:</label>
+    <select name="bgColor" id="bgColors" onclick="changeBg()">
+      <option value="red">red</option>
+      <option value="green">green</option>
+      <option value="blue">blue</option>
+    </select>
+    <br /><br />
+    <!-- <input type="submit" onclick="changeBg()" /> -->
+  </body>
+</html>
