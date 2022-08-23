@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+  <title>For-each loop</title>
+  <body id="bodys">
+    <h2>For-each Loop</h2>
+    <h6 id="name"></h6>
+    <script>
+      const data = [
+        { name: "John", age: 30, group: "A" },
+        { name: "Mary", age: 25, group: "B" },
+        { name: "Mike", age: 20, group: "A" },
+        { name: "Jane", age: 15, group: "C" },
+        { name: "Peter", age: 25, group: "B" },
+      ];
+      let copyData = [{}];
+      let htmlElement = [];
+
+      data.forEach((value, index) => {
+        htmlElement[index] = document.createElement("p");
+        htmlElement[
+          index
+        ].innerHTML = `Name is ${value.name} age is  ${value.age}`;
+
+        document.getElementById("bodys").appendChild(htmlElement[index]);
+      });
+    </script>
+  </body>
+</html>

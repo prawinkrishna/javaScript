@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+  <title>Litres Per Gallon</title>
+  <body>
+    <h2>Litres Per Gallon</h2>
+    <p>Type a value in the Gallon field to convert the value to Litres:</p>
+    <p>
+      <label>Gallon</label>
+      <input
+        type="number"
+        placeholder="Gallon"
+        id="gallon"
+        oninput="outputLiters(this.value)"
+      />
+      <label>liters</label>
+
+      <input
+        type="number"
+        placeholder="Litres"
+        id="liters"
+        oninput="outputGallon(this.value)"
+      />
+    </p>
+    <script>
+      outputLiters = (gallon) => {
+        document.getElementById("liters").value = gallon * 3.785412;
+      };
+      outputGallon = (liters) => {
+        document.getElementById("gallon").value = liters / 3.785412;
+      };
+    </script>
+  </body>
+</html>

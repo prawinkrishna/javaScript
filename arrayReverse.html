@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>get values from html input array</title>
+  </head>
+
+  <body style="text-align: center">
+    <h3 id="po">Input Array Elements</h3>
+    <form class="" action="index.html" method="post">
+      <input type="text" name="array" /><br />
+      <input type="text" name="array" /><br />
+      <input type="text" name="array" /><br />
+      <input type="text" name="array" /><br />
+      <input type="text" name="array" /><br />
+      <button type="button" name="button" onclick="reverseArray()">
+        Submit
+      </button>
+    </form>
+    <br />
+
+    <h4>array</h4>
+    <p id="string"></p>
+    <h4>reverses array</h4>
+    <p id="reverseString"></p>
+
+    <script type="text/javascript">
+      reverseArray = () => {
+        let input = document.getElementsByName("array");
+        let reverseString = [];
+        let string = [];
+        let index2 = -1;
+
+        input.forEach((data, index) => {
+          if (data.value != "") {
+            index2 = index2 + 1;
+            reverseString[index2] = data.value;
+            string[index2] = data.value;
+          }
+        });
+        document.getElementById("string").innerHTML = string.filter((a) => a);
+        document.getElementById("reverseString").innerHTML =
+          reverseString.filter((a) => a);
+      };
+    </script>
+  </body>
+</html>

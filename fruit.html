@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8" />
+    <title>get values from html input array</title>
+  </head>
+
+  <body style="text-align: center">
+    <h3 id="">Input Array Elements</h3>
+    <form class="" action="index.html" method="post">
+      <input type="text" name="array" value="" /><br />
+      <input type="text" name="array" /><br />
+      <input type="text" name="array" value="" /><br />
+      <input type="text" name="array" /><br />
+      <input type="text" name="array" value="" /><br />
+      <button type="button" name="button" onclick="fruitsCompare()">
+        Check
+      </button>
+    </form>
+    <br />
+
+    <script type="text/javascript">
+      let fruits = ["amla", "orange", "kiwi", "tomato"];
+      fruitsCompare = () => {
+        let arrFruit = [];
+        let input = document.getElementsByName("array");
+        input.forEach((data, index) => {
+          arrFruit[index] = data.value;
+        });
+        let result = getVitaminCFruits(arrFruit);
+        document.getElementById("reverseString").innerHTML = result;
+      };
+
+      getVitaminCFruits = (data) => {
+        // let same = fruits.filter((item) => {
+        //   return data.includes(item);
+        // });
+        // return same;
+
+        const uniqueItems = [];
+        fruits.forEach((num1) => {
+          data.forEach((num2) => num1 === num2 && uniqueItems.push(num1));
+        });
+        if (uniqueItems == "") {
+          return "no match";
+        }
+        return uniqueItems;
+      };
+    </script>
+  </body>
+</html>

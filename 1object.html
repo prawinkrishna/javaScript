@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html>
+  <head> </head>
+  <body>
+    <p>OBJECT sample</p>
+    <p id="displayName"></p>
+    <script type="text/javascript">
+      const person = { firstName: "prawin", lastName: "krishna" };
+      let displayName = (fName, lName) => {
+        let text = `hi ${fName} ${lName}`;
+        document.getElementById("displayName").innerHTML = text;
+      };
+      displayName(person.firstName, person.lastName);
+    </script>
+  </body>
+</html>

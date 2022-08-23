@@ -46,15 +46,8 @@
         arrraytable.forEach((data, index) => {
           rowarr[index] = document.createElement("tr");
           let keyLength = Object.keys(data).length;
-          // console.log(Object.entries(data));
-          // for (const [key, value] of Object.entries(data)) {
-          //   tData[index] = document.createElement("td");
-          //   tData[index].innerHTML = value;
-          //   rowarr[index].appendChild(tData[index]);
-          // }
 
           Object.values(data).forEach((value, key) => {
-            console.log(value, key);
             tData[index] = document.createElement("td");
             tData[index].innerHTML = value;
             rowarr[index].appendChild(tData[index]);

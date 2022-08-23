@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+  <title>while loop</title>
+  <body id="bodys">
+    <h2>while Loop</h2>
+    <h6 id="name"></h6>
+    <script>
+      const data = [
+        { name: "John", age: 30, group: "A" },
+        { name: "Mary", age: 25, group: "B" },
+        { name: "Mike", age: 20, group: "A" },
+        { name: "Jane", age: 15, group: "C" },
+        { name: "Peter", age: 25, group: "B" },
+      ];
+      let copyData = [...data];
+      let htmlElement = [];
+      let index = 0;
+      while (index < copyData.length) {
+        htmlElement[index] = document.createElement("p");
+        htmlElement[
+          index
+        ].innerHTML = `Name is ${copyData[index].name} age is  ${copyData[index].age}`;
+
+        document.getElementById("bodys").appendChild(htmlElement[index]);
+        index++;
+      }
+    </script>
+  </body>
+</html>

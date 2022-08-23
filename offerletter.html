@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8" />
+    <title>get values from html input array</title>
+  </head>
+
+  <body style="text-align: center" id="body">
+    <h3 id="">Input Array Elements</h3>
+    <form class="" action="index.html" method="post">
+      <input type="text" name="array" id="input1" />
+      <input type="text" name="array" id="input2" /><br />
+
+      <button type="button" name="button" onclick="addData()">Submit</button>
+      <button type="button" name="result" onclick="letter(objEmp)">
+        result
+      </button>
+    </form>
+    <br />
+
+    <p id="string"></p>
+
+    <script type="text/javascript">
+      let objEmp = [{}];
+      let index = 0;
+      let letterData = [];
+      let letters =
+        "Dear <Candidate.Name>,Congratulations. You're selected for the job position <Candidate.position>.Please join us at our head office on or before 15-Sep-2022.";
+      let newarr = [];
+      let addData = () => {
+        let employee = document.getElementsByName("array");
+        objEmp[index] = {
+          name: employee[0].value,
+          position: employee[1].value,
+        };
+        ++index;
+        document.getElementById("input1").value = "";
+        document.getElementById("input2").value = "";
+      };
+      letter = (data) => {
+        data.forEach((element, inde) => {
+          newarr[inde] = letters
+            .replace("<Candidate.Name>", element.name)
+            .replace("<Candidate.position>", element.position);
+        });
+        newarr.forEach((data, index2) => {
+          letterData[index2] = document.createElement("h3");
+          letterData[index2].innerHTML = data;
+          document.getElementById("body").appendChild(letterData[index2]);
+        });
+      };
+    </script>
+  </body>
+</html>

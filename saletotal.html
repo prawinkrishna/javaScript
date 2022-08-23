@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8" />
+    <title>get values from html input array</title>
+  </head>
+
+  <body style="text-align: center">
+    <pre id="string"></pre>
+    <!-- <p id="reverseString"></p> -->
+
+    <script type="text/javascript">
+      const sales = [
+        { item: "PS4 Pro", stock: 3, original: 399.99 },
+        { item: "Xbox One X", stock: 1, original: 499.99, discount: 0.1 },
+        { item: "Nintendo Switch", stock: 4, original: 299.99 },
+        { item: "PS2 Console", stock: 1, original: 299.99, discount: 0.8 },
+        { item: "Nintendo 64", stock: 2, original: 199.99, discount: 0.65 },
+      ];
+
+      let calculateSalesTotals = () => {
+        let total, salePrice;
+        let obj = [{}];
+        let discount;
+        sales.forEach((value, index) => {
+          // discount =
+          value.discount != null ? (discount = value.discount) : (discount = 0);
+          salePrice = value.original - value.original * discount;
+          value.salePrice = salePrice;
+          total = salePrice * value.stock;
+          value.total = total;
+          obj[index] = value;
+        });
+        return obj;
+      };
+      // console.log(JSON.stringify(calculateSalesTotals()));
+      document.getElementById("string").innerHTML = JSON.stringify(
+        calculateSalesTotals(),
+        undefined,
+        30
+      );
+    </script>
+  </body>
+</html>

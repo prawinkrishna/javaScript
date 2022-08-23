@@ -1,0 +1,113 @@
+<html>
+  <head> </head>
+  <style>
+    .form-control {
+      display: block;
+      width: 35%;
+      height: 34px;
+      padding: 6px 12px;
+      font-size: 14px;
+      line-height: 1.42857143;
+    }
+    body {
+      font-family: Arial, Helvetica, sans-serif;
+    }
+  </style>
+  <!-- <link
+    rel="stylesheet"
+    href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css"
+  />
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script> -->
+  <body>
+    <form name="myform" style="padding: 20px" id="">
+      <select
+        name="optone"
+        class="selectDD form-control"
+        style="width: 35%"
+        id="stateSel"
+        size="1"
+      >
+        <option value="">Select state</option>
+      </select>
+      <br />
+      <br />
+      <select
+        name="opttwo"
+        class="selectDD form-control"
+        style="width: 35%"
+        id="countySel"
+        size="1"
+      >
+        <option value="" selected="selected">Please select state first</option>
+      </select>
+      <br />
+      <br />
+      <select
+        name="optthree"
+        class="selectDD form-control"
+        style="width: 35%"
+        id="citySel"
+        size="1"
+      >
+        <option value="" selected="selected">Please select county first</option>
+      </select>
+    </form>
+    <script>
+      var stateObject = {
+        India: {
+          Mumbai: ["Bandra", "Goregaon", "Marin Lines"],
+          Pune: ["Lal Mahal", "Hinjawadi"],
+          Delhi: ["Gurugram", "Karol Bagh"],
+        },
+        "United States": {
+          California: ["San Diego", "Sears Point"],
+          Nevada: ["Las Vegas", "Lamoille Canyon"],
+        },
+        "United Kingdom": {
+          England: ["Cambridge.", "London", "Bristol"],
+          Scotland: ["Glasgow", "Edinburgh"],
+        },
+      };
+      window.onload = function () {
+        var stateSel = document.getElementById("stateSel"),
+          countySel = document.getElementById("countySel"),
+          citySel = document.getElementById("citySel");
+        // console.log(stateSel.options);
+
+        for (var state in stateObject) {
+          stateSel.options[stateSel.options.length] = new Option(state, state);
+          console.log(stateSel);
+        }
+
+        stateSel.onchange = function () {
+          console.log("111");
+          countySel.length = 1;
+          citySel.length = 1;
+          if (this.selectedIndes < 1) return;
+          for (var county in stateObject[this.value]) {
+            countySel.options[countySel.options.length] = new Option(
+              county,
+              county
+            );
+          }
+        };
+
+        stateSel.onchange();
+
+        countySel.onchange = function () {
+          citySel.length = 1;
+          if (this.selectedIndex < 1) return;
+
+          var cities = stateObject[stateSel.value][this.value];
+          for (var i = 0; i < cities.length; i++) {
+            citySel.options[citySel.options.length] = new Option(
+              cities[i],
+              cities[i]
+            );
+          }
+        };
+      };
+    </script>
+  </body>
+</html>

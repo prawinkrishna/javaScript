@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+  <title>For-in loop</title>
+  <body id="bodys">
+    <h2>For-in Loop</h2>
+    <h6 id="name"></h6>
+    <script>
+      const data = [
+        { name: "John", age: 30, group: "A" },
+        { name: "Mary", age: 25, group: "B" },
+        { name: "Mike", age: 20, group: "A" },
+        { name: "Jane", age: 15, group: "C" },
+        { name: "Peter", age: 25, group: "B" },
+      ];
+      let copyData = [{}];
+      let htmlElement = [];
+      for (let key in data) {
+        htmlElement[key] = document.createElement("p");
+        htmlElement[
+          key
+        ].innerHTML = `Name is ${data[key].name} age is  ${data[key].age}`;
+        document.getElementById("bodys").appendChild(htmlElement[key]);
+      }
+    </script>
+  </body>
+</html>

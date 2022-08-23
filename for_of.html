@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+  <title>For-of loop</title>
+  <body id="bodys">
+    <h2>For-of Loop</h2>
+    <h6 id="name"></h6>
+    <script>
+      const data = [
+        { name: "John", age: 30, group: "A" },
+        { name: "Mary", age: 25, group: "B" },
+        { name: "Mike", age: 20, group: "A" },
+        { name: "Jane", age: 15, group: "C" },
+        { name: "Peter", age: 25, group: "B" },
+      ];
+      let copyData = [{}];
+      let htmlElement = [];
+      for (let [index, data2] of data.entries()) {
+        htmlElement[index] = document.createElement("p");
+        htmlElement[
+          index
+        ].innerHTML = `Name is ${data2.name} age is  ${data2.age}`;
+
+        document.getElementById("bodys").appendChild(htmlElement[index]);
+      }
+    </script>
+  </body>
+</html>
